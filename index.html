@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+    
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="./css/style-presentation.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>React</h1>
+					<img src="https://habrastorage.org/getpro/habr/post_images/1b6/430/c4f/1b6430c4f1764ef597cd15270386b1a0.png" alt="foto_react">					
+				</section>
+				<section>
+					<h2>What’s React?</h2>
+					<p><span>React</span> is a JavaScript library for building user interfaces. It is maintained by Facebook and a
+						 community of individual developers and companies.</p>
+					<p><span>React</span> can be used as a base in the development of single-page or mobile applications. Complex
+						 React applications usually require the use of additional libraries for state management, routing,
+						 and interaction with an API.</p>				 
+				</section>
+				<section class="history">
+					<h2>History</h2>
+					<p><span>React</span> was created by Jordan Walke, a software engineer at Facebook. He was influenced by XHP,
+						 an HTML component framework for PHP. It was open-sourced at JSConf US in <span>May 2013.</span></p>
+					<p>On <span>April 18, 2017,</span> Facebook announced <span>React Fiber</span>, a new core algorithm of React
+						 framework library for building user interfaces.</p>
+					<img src="https://dashbouquet.com/assets/img/blog/jordan-walke2.png" alt="author_react">
+				</section>
+				<section class="usage">
+					<h2>Basic usage</h2>
+					<p>The Greeter class is a React component that accepts a property greeting.</p>
+					<img src="./img/react-component.png" alt="react_component">
+					<p>When displayed in a web browser the result will be</p>
+					<img src="./img/render-component.png" alt="render_component">
+				</section>
+				<section class="concepts">
+					<section class="elements">
+						<h2>Concepts of React</h2>
+					  <h3>1. Elements and components</h3>
+					  <img src="./img/elements.png" alt="elements">
+					</section>				
+					<section class="properties">
+						<h3>2. Properties</h3>
+						<p>Properties can be understood as component options. They are provided as
+							component arguments and look the same as HTML attributes. In the render function,
+							the Photo component has 2 properties: imageURL and caption.</p>
+						<img src="./img/properties.png" alt="properties">
+					</section>
+					<section>
+						<h3>3. JSX</h3>
+						<p>JSX is a technique for creating React elements and components. For example, this is a React element written in JSX:</p>
+						<img src="./img/jsx-one.png" alt="jsx">
+						<p>The same element can be written in JavaScript:</p>
+						<img src="./img/jsx-two.png" alt="jsx">
+						<p>Since JSX requires much less effort, it transforms into JavaScript before running in a browser.</p>
+					</section>
+					<section>
+						<h3>4. Virtual DOM</h3>
+						<p>Virtual DOM is a tree of React elements on JavaScript. React renders the Virtual DOM in the browser
+							to make the interface visible. React monitors changes in Virtual DOM and automatically changes the DOM
+							in the browser so that it matches the virtual one.</p>
+						<img src="./img/vdom.png" alt="vdom">
+					</section>
+					<section>
+						<p>React creates an in-memory data structure cache, computes the resulting differences, and then updates
+							the browser's displayed DOM efficiently. This allows the programmer to write code as if the entire page
+							is rendered on each change, while the React libraries only render subcomponents that actually change.</p>
+						<img src="./img/vdom-two.png" alt="vdom">
+					</section>
+				</section>
+				<section class="props">
+					<h2>React props</h2>
+					<div class="wrapper">
+						<div>
+							<p>You can specify which primitive the property should be.</p>
+							<img src="./img/props-one.png" alt="props_primitive">
+							<p>You can indicate that a property can be one of ...</p>
+					    <img src="./img/props-two.png" alt="props_can_be">
+						</div>
+						<div>
+							<p>You can specify the specific structure of the property object.</p>
+							<img src="./img/props-three.png" alt="props_object">
+							<p>You can indicate that the property is required</p>
+							<img src="./img/props-four.png" alt="props_required">
+						</div>					  
+					</div>
+				</section>
+				<section>
+					<section class="state">
+						<h2>State</h2>
+						<p>A state is a special object inside a component. It stores data that may change over time.
+							The component has a new function getInitialState. React calls it after initializing the 
+							component. It sets the initial state (which implies the name of the function).
+						</p>
+						<img src="./img/state.png" alt="state">
+						<p>The component also has a toggleLiked function. Using the setState function, it switches the liked state. 
+							The event is suspended by a button.</p>
+						<img src="./img/button.png" alt="button">
+					</section>
+					<section>
+						<p>Here is what happens after the component is drawn:</p>
+						<p>- After pressing the button, toggleLiked is called.</p>
+						<p>- Like state changes</p>	
+						<p>- React redraws a component in Virtual DOM</p>	
+						<p>- New Virtual DOM is compared with the previous one.</p>
+						<p>- React isolates changes and updates them in the browser DOM</p>
+						<p>In this case, React will change the class name of the button.</p>		
+					</section>
+				</section>			
+				<section class="refs">
+					<h2>Refs</h2>
+					<p>Refs are used to get a reference to a DOM (Document Object Model) node or component in React.
+							Refs are created using React.createRef() and attached to React elements via the refattribute.</p>
+					<img src="./img/refs.png" alt="refs">
+					<p>There are a few good use cases for refs:</p>	
+					<p>1. Managing focus, text selection, or media playback.</p>
+					<p>2. Triggering imperative animations.</p>	
+					<p>3. Integrating with third-party DOM libraries.</p>
+					<p>Avoid using refs for anything that can be done declaratively.</p>
+				</section>
+				<section>
+					<h2>Render</h2>
+					<p>First of all, the virtual element (element, or React component) is rendered. Remember, while the 
+						virtual element is only in javascript memory. We must explicitly tell React to draw it in the browser.</p>
+					<img src="./img/render.png" alt="render">
+					<p>The rendering function takes two arguments: a virtual element and a real DOM node. React takes a virtual
+						item and adds it to the specified node. Now the image can be seen in the browser.</p>
+				</section>
+				<section class="life">
+					<section>
+						<h2>Component life cycles</h2>
+					  <img src="./img/life-cicle.png" alt="life_cicle">
+					</section>
+					<section>
+					  <p>ComponentWillMount - the component will be mounted. At the moment we have no opportunity to see DOM elements.</p>
+					  <p>ComponentDidMount - the component was mounted. At the moment, we have the opportunity to use refs, and therefore
+						  this is the place where we would like to indicate the focus setting. Also, timeouts, ajax requests and interaction
+						  with other libraries should be handled here.</p>
+						<p>ComponentWillReceiveProps - the component receives new props. This method is not called at the time of the first render.</p>
+						<p>ShouldComponentUpdate - should the component be updated? In fact, usually the reactor itself perfectly understands.
+							But sometimes manual control can significantly speed up the work in "bottlenecks". With this method you need to work very carefully.</p>
+						<p>ComponentWillUpdate - called right before render when new props and state are received. You cannot call setState in this method.</p>
+						<p>ComponentDidUpdate - called immediately after render. It is not called at the time of the first render of the component.</p>	
+          </section>				
+				</section>
+				<section class="using">
+					<h2>Advantages of using React</h2>
+					<p>1. Performance when used correctly (speed).</p>
+					<p>2. You can always tell how your component will be drawn by looking at the source code.</p>	
+					<p>3. Linking JavaScript and HTML in JSX makes components easy to understand.</p>	 
+					<p>4. You can render React on the server.</p>	
+					<p>5. Thanks to the reuse of the code, it has become much easier to create mobile applications (extensibility).</p>
+				</section>
+				<section>
+					<h2>Compare</h2>
+					<div class="wrapper">
+						<div>
+							<img src="https://raphamorim.io/assets/images/posts/stack-example.gif" alt="js">
+							<p>JS</p>
+						</div>
+						<div>
+							<img src="https://raphamorim.io/assets/images/posts/fiber-example.gif" alt="react">
+							<p>react</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h2>Thanks!</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

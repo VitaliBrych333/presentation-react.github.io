@@ -1,0 +1,26 @@
+.reveal h1, .reveal section span {
+  color: rgb(70, 202, 196);
+}
+
+.history p, .usage p, .concepts p, .props p, .state p, .refs p, .using p, .life p {
+  font-size: 22px;
+}
+
+.history img {
+  width: 700px;
+  height: 400px;
+}
+
+.elements img, .properties img {
+  width: 900px;
+  height: 400px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.life img {
+  width: 900px;
+  height: 450px;
+}
