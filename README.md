@@ -79,19 +79,25 @@ The rendering function takes two arguments: a virtual element and a real DOM nod
 Component life cycles
 
 A component has a life cycle that is divided into phases. The figure shows the life cycle phases:
+
 componentWillMount - the component will be mounted. At the moment we have no opportunity to see DOM elements.
 
 componentDidMount - the component was mounted. At the moment, we have the opportunity to use refs, and therefore this is the place where we would like to indicate the focus setting. Also, timeouts, ajax requests and interaction with other libraries should be handled here.
+
 componentWillReceiveProps - the component receives new props. This method is not called at the time of the first render.
+
 shouldComponentUpdate - should the component be updated? In fact, usually the reactor itself perfectly understands. But sometimes manual control can significantly speed up the work in "bottlenecks". With this method you need to work very carefully.
+
 componentWillUpdate - called right before render when new props and state are received. You cannot call setState in this method.
+
 componentDidUpdate - called immediately after render. It is not called at the time of the first render of the component.
+
 componentWillUnmount is called immediately before the component is removed from the DOM.
 
 Advantages of using React
 
- 1. Performance when used correctly (speed).
- 2. You can always tell how your component will be drawn by looking at the source code.
+1. Performance when used correctly (speed).
+2. You can always tell how your component will be drawn by looking at the source code.
 3. Linking JavaScript and HTML in JSX makes components easy to understand.
 4. You can render React on the server.
 5. Thanks to the reuse of the code, it has become much easier to create mobile applications (extensibility).
